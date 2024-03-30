@@ -9,3 +9,13 @@ public class MoneyRavenApplication {
         SpringApplication.run(MoneyRavenApplication.class, args);
     }
 }
+
+
+        /*
+        //Посчитаем, сколько у нас тут бинов
+        String[] names =
+                SpringApplication.run(MoneyRavenApplication.class, args).getBeanDefinitionNames();
+        int i=0;
+        for (String name : names) {
+            System.out.println(i++ + name);
+        }*/
