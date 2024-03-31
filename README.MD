@@ -153,361 +153,6 @@ SpringApplication.run() а где же здесь контекст? что,спринг отказался от Контекс
     Остается только вызвать getBeanDefinbitionNames() в main()...
     Получилось 362 бина. Кто это конкретно?
 
- /*           0-3 org.springframework.context.annotation.*
-            4-5 org.springframework.context.event.*
-            6 moneyRavenApplication
-            7, 11, 12, 14 org.springframework.boot.autoconfigure.*
-            8 ironBankController
-            9 predskazServiceNameBased
-            10 transferMoneyPredskazBackend
-            13 propertySourcesPlaceholderConfigurer
-            15 sslPropertiesSslBundleRegistrar
-            16 sslBundleRegistry
-            17-20 org.springframework.boot.context.properties.*
-            21 spring.ssl-org.springframework.boot.autoconfigure.ssl.SslProperties
-            22 org.springframework.boot.autoconfigure.websocket.servlet.WebSocketServletAutoConfiguration$TomcatWebSocketConfiguration
-            23 websocketServletWebServerCustomizer
-            24 org.springframework.boot.autoconfigure.websocket.servlet.WebSocketServletAutoConfiguration
-            25 org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryConfiguration$EmbeddedTomcat
-            26tomcatServletWebServerFactory
-            27org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryAutoConfiguration
-            28servletWebServerFactoryCustomizer
-            29tomcatServletWebServerFactoryCustomizer
-            30server-org.springframework.boot.autoconfigure.web.ServerProperties
-            31webServerFactoryCustomizerBeanPostProcessor
-            32errorPageRegistrarBeanPostProcessor
-            33org.springframework.boot.autoconfigure.web.servlet.DispatcherServletAutoConfiguration$DispatcherServletConfiguration
-            34dispatcherServlet
-            35spring.mvc-org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties
-            36org.springframework.boot.autoconfigure.web.servlet.DispatcherServletAutoConfiguration$DispatcherServletRegistrationConfiguration
-            37dispatcherServletRegistration
-            38org.springframework.boot.autoconfigure.web.servlet.DispatcherServletAutoConfiguration
-            39org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration
-            40taskExecutorBuilder
-            41applicationTaskExecutor
-            42spring.task.execution-org.springframework.boot.autoconfigure.task.TaskExecutionProperties
-            43org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration
-            44error
-            45beanNameViewResolver
-            46org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration$DefaultErrorViewResolverConfiguration
-            47conventionErrorViewResolver
-            48spring.web-org.springframework.boot.autoconfigure.web.WebProperties
-            49org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration
-            50errorAttributes
-            51basicErrorController
-            52errorPageCustomizer
-            53preserveErrorControllerTargetClassPostProcessor
-            54org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration$EnableWebMvcConfiguration
-            55requestMappingHandlerAdapter
-            56welcomePageHandlerMapping
-            57welcomePageNotAcceptableHandlerMapping
-            58localeResolver
-            59themeResolver
-            60flashMapManager
-            61mvcConversionService
-            62mvcValidator
-            63mvcContentNegotiationManager
-            64requestMappingHandlerMapping
-            65mvcPatternParser
-            66mvcUrlPathHelper
-            67mvcPathMatcher
-            68viewControllerHandlerMapping
-            69beanNameHandlerMapping
-            70routerFunctionMapping
-            71resourceHandlerMapping
-            72mvcResourceUrlProvider
-            73defaultServletHandlerMapping
-            74handlerFunctionAdapter
-            75mvcUriComponentsContributor
-            76httpRequestHandlerAdapter
-            77simpleControllerHandlerAdapter
-            78handlerExceptionResolver
-            79mvcViewResolver
-            80mvcHandlerMappingIntrospector
-            81viewNameTranslator
-            82org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter
-            83defaultViewResolver
-            84viewResolver
-            85requestContextFilter
-            86org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration
-            87formContentFilter
-            88org.springframework.boot.autoconfigure.availability.ApplicationAvailabilityAutoConfiguration
-            89applicationAvailability
-            90org.springframework.boot.actuate.autoconfigure.availability.AvailabilityHealthContributorAutoConfiguration
-            91org.springframework.boot.autoconfigure.transaction.jta.JtaAutoConfiguration
-            92org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari
-            93jdbcConnectionDetailsHikariBeanPostProcessor
-            94dataSource
-            95org.springframework.boot.autoconfigure.jdbc.DataSourceJmxConfiguration$Hikari
-            96org.springframework.boot.autoconfigure.jdbc.DataSourceJmxConfiguration
-            97org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration$PooledDataSourceConfiguration
-            98jdbcConnectionDetails
-            99org.springframework.boot.autoconfigure.jdbc.metadata.DataSourcePoolMetadataProvidersConfiguration$HikariPoolDataSourceMetadataProviderConfiguration
-            100hikariPoolDataSourceMetadataProvider
-            101org.springframework.boot.autoconfigure.jdbc.metadata.DataSourcePoolMetadataProvidersConfiguration
-            102org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
-            103spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties
-            104org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration
-            105openEntityManagerInViewInterceptor
-            106openEntityManagerInViewInterceptorConfigurer
-            107org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$PersistenceManagedTypesConfiguration
-            108persistenceManagedTypes
-            109org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration
-            110transactionManager
-            111jpaVendorAdapter
-            112entityManagerFactoryBuilder
-            113entityManagerFactory
-            114spring.jpa.hibernate-org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties
-            115spring.jpa-org.springframework.boot.autoconfigure.orm.jpa.JpaProperties
-            116org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
-            117org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$Jackson2ObjectMapperBuilderCustomizerConfiguration
-            118standardJacksonObjectMapperBuilderCustomizer
-            119spring.jackson-org.springframework.boot.autoconfigure.jackson.JacksonProperties
-            120org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperBuilderConfiguration
-            121jacksonObjectMapperBuilder
-            122org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$ParameterNamesModuleConfiguration
-            123parameterNamesModule
-            124org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperConfiguration
-            125jacksonObjectMapper
-            126org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonMixinConfiguration
-            127jsonMixinModuleEntries
-            128jsonMixinModule
-            129org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration
-            130jsonComponentModule
-            131org.springframework.boot.actuate.autoconfigure.health.HealthEndpointConfiguration
-            132healthStatusAggregator
-            133healthHttpCodeStatusMapper
-            134healthEndpointGroups
-            135healthContributorRegistry
-            136healthEndpointGroupMembershipValidator
-            137healthEndpoint
-            138healthEndpointGroupsBeanPostProcessor
-            139org.springframework.boot.actuate.autoconfigure.health.HealthEndpointWebExtensionConfiguration$MvcAdditionalHealthEndpointPathsConfiguration
-            140healthEndpointWebMvcHandlerMapping
-            141org.springframework.boot.actuate.autoconfigure.health.HealthEndpointWebExtensionConfiguration
-            142healthEndpointWebExtension
-            143org.springframework.boot.actuate.autoconfigure.health.HealthEndpointAutoConfiguration
-            144management.endpoint.health-org.springframework.boot.actuate.autoconfigure.health.HealthEndpointProperties
-            145org.springframework.boot.autoconfigure.info.ProjectInfoAutoConfiguration
-            146spring.info-org.springframework.boot.autoconfigure.info.ProjectInfoProperties
-            147org.springframework.boot.actuate.autoconfigure.info.InfoContributorAutoConfiguration
-            148management.info-org.springframework.boot.actuate.autoconfigure.info.InfoContributorProperties
-            149org.springframework.boot.actuate.autoconfigure.web.servlet.ServletManagementContextAutoConfiguration
-            150servletWebChildContextFactory
-            151managementServletContext
-            152org.springframework.boot.actuate.autoconfigure.endpoint.EndpointAutoConfiguration
-            153endpointOperationParameterMapper
-            154endpointCachingOperationInvokerAdvisor
-            155org.springframework.boot.actuate.autoconfigure.endpoint.jackson.JacksonEndpointAutoConfiguration
-            156endpointObjectMapper
-            157org.springframework.boot.actuate.autoconfigure.endpoint.web.WebEndpointAutoConfiguration$WebEndpointServletConfiguration
-            158servletEndpointDiscoverer
-            159org.springframework.boot.actuate.autoconfigure.endpoint.web.WebEndpointAutoConfiguration
-            160webEndpointPathMapper
-            161endpointMediaTypes
-            162webEndpointDiscoverer
-            163controllerEndpointDiscoverer
-            164pathMappedEndpoints
-            165webExposeExcludePropertyEndpointFilter
-            166controllerExposeExcludePropertyEndpointFilter
-            167management.endpoints.web-org.springframework.boot.actuate.autoconfigure.endpoint.web.WebEndpointProperties
-            168org.springframework.boot.autoconfigure.jdbc.JdbcTemplateConfiguration
-            169jdbcTemplate
-            170org.springframework.boot.autoconfigure.jdbc.NamedParameterJdbcTemplateConfiguration
-            171namedParameterJdbcTemplate
-            172org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration
-            173spring.jdbc-org.springframework.boot.autoconfigure.jdbc.JdbcProperties
-            174org.springframework.boot.sql.init.dependency.DatabaseInitializationDependencyConfigurer$DependsOnDatabaseInitializationPostProcessor
-            175org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration$FlywayConfiguration
-            176resourceProviderCustomizer
-            177flywayConnectionDetails
-            178flyway
-            179flywayInitializer
-            180spring.flyway-org.springframework.boot.autoconfigure.flyway.FlywayProperties
-            181org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration
-            182stringOrNumberMigrationVersionConverter
-            183flywayDefaultDdlModeProvider
-            184org.springframework.boot.actuate.autoconfigure.system.DiskSpaceHealthContributorAutoConfiguration
-            185diskSpaceHealthIndicator
-            186management.health.diskspace-org.springframework.boot.actuate.autoconfigure.system.DiskSpaceHealthIndicatorProperties
-            187org.springframework.boot.actuate.autoconfigure.health.HealthContributorAutoConfiguration
-            188pingHealthContributor
-            189org.springframework.boot.actuate.autoconfigure.jdbc.DataSourceHealthContributorAutoConfiguration
-            190dbHealthContributor
-            191management.health.db-org.springframework.boot.actuate.autoconfigure.jdbc.DataSourceHealthIndicatorProperties
-            192org.springframework.boot.actuate.autoconfigure.metrics.MetricsAutoConfiguration
-            193micrometerClock
-            194meterRegistryPostProcessor
-            195propertiesMeterFilter
-            196management.metrics-org.springframework.boot.actuate.autoconfigure.metrics.MetricsProperties
-            197org.springframework.boot.actuate.autoconfigure.metrics.export.simple.SimpleMetricsExportAutoConfiguration
-            198simpleMeterRegistry
-            199simpleConfig
-            200management.simple.metrics.export-org.springframework.boot.actuate.autoconfigure.metrics.export.simple.SimpleProperties
-            201org.springframework.boot.actuate.autoconfigure.metrics.CompositeMeterRegistryAutoConfiguration
-            202org.springframework.boot.actuate.autoconfigure.metrics.JvmMetricsAutoConfiguration
-            203jvmGcMetrics
-            204jvmHeapPressureMetrics
-            205jvmMemoryMetrics
-            206jvmThreadMetrics
-            207classLoaderMetrics
-            208jvmInfoMetrics
-            209jvmCompilationMetrics
-            210org.springframework.boot.actuate.autoconfigure.metrics.LogbackMetricsAutoConfiguration
-            211logbackMetrics
-            212org.springframework.boot.actuate.autoconfigure.metrics.SystemMetricsAutoConfiguration
-            213uptimeMetrics
-            214processorMetrics
-            215fileDescriptorMetrics
-            216diskSpaceMetrics
-            217org.springframework.boot.actuate.autoconfigure.metrics.data.RepositoryMetricsAutoConfiguration
-            218repositoryTagsProvider
-            219metricsRepositoryMethodInvocationListener
-            220metricsRepositoryMethodInvocationListenerBeanPostProcessor
-            221org.springframework.boot.actuate.autoconfigure.metrics.integration.IntegrationMetricsAutoConfiguration
-            222org.springframework.boot.actuate.autoconfigure.metrics.jdbc.DataSourcePoolMetricsAutoConfiguration$HikariDataSourceMetricsConfiguration
-            223hikariDataSourceMeterBinder
-            224org.springframework.boot.actuate.autoconfigure.metrics.jdbc.DataSourcePoolMetricsAutoConfiguration$DataSourcePoolMetadataMetricsConfiguration
-            225dataSourcePoolMetadataMeterBinder
-            226org.springframework.boot.actuate.autoconfigure.metrics.jdbc.DataSourcePoolMetricsAutoConfiguration
-            227org.springframework.boot.actuate.autoconfigure.metrics.startup.StartupTimeMetricsListenerAutoConfiguration
-            228startupTimeMetrics
-            229org.springframework.boot.autoconfigure.task.TaskSchedulingAutoConfiguration
-            230taskSchedulerBuilder
-            231spring.task.scheduling-org.springframework.boot.autoconfigure.task.TaskSchedulingProperties
-            232org.springframework.boot.actuate.autoconfigure.metrics.task.TaskExecutorMetricsAutoConfiguration
-            233eagerTaskExecutorMetrics
-            234org.springframework.boot.actuate.autoconfigure.metrics.web.tomcat.TomcatMetricsAutoConfiguration
-            235tomcatMetricsBinder
-            236org.springframework.boot.actuate.autoconfigure.observation.ObservationAutoConfiguration$MeterObservationHandlerConfiguration$OnlyMetricsMeterObservationHandlerConfiguration
-            237defaultMeterObservationHandler
-            238org.springframework.boot.actuate.autoconfigure.observation.ObservationAutoConfiguration$MeterObservationHandlerConfiguration
-            239org.springframework.boot.actuate.autoconfigure.observation.ObservationAutoConfiguration$OnlyMetricsConfiguration
-            240metricsObservationHandlerGrouping
-            241org.springframework.boot.actuate.autoconfigure.observation.ObservationAutoConfiguration
-            242observationRegistryPostProcessor
-            243observationRegistry
-            244management.observations-org.springframework.boot.actuate.autoconfigure.observation.ObservationProperties
-            245org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration
-            246gsonBuilder
-            247gson
-            248standardGsonBuilderCustomizer
-            249spring.gson-org.springframework.boot.autoconfigure.gson.GsonProperties
-            250org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration$StringHttpMessageConverterConfiguration
-            251stringHttpMessageConverter
-            252org.springframework.boot.autoconfigure.http.JacksonHttpMessageConvertersConfiguration$MappingJackson2HttpMessageConverterConfiguration
-            253mappingJackson2HttpMessageConverter
-            254org.springframework.boot.autoconfigure.http.JacksonHttpMessageConvertersConfiguration
-            255org.springframework.boot.autoconfigure.http.GsonHttpMessageConvertersConfiguration
-            256org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration
-            257messageConverters
-            258org.springframework.boot.autoconfigure.web.client.RestTemplateAutoConfiguration
-            259restTemplateBuilderConfigurer
-            260restTemplateBuilder
-            261org.springframework.boot.actuate.autoconfigure.observation.web.client.HttpClientObservationsAutoConfiguration$MeterFilterConfiguration
-            262metricsHttpClientUriTagFilter
-            263org.springframework.boot.actuate.autoconfigure.observation.web.client.RestTemplateObservationConfiguration
-            264observationRestTemplateCustomizer
-            265org.springframework.boot.actuate.autoconfigure.observation.web.client.HttpClientObservationsAutoConfiguration
-            266org.springframework.boot.actuate.autoconfigure.observation.web.servlet.WebMvcObservationAutoConfiguration$MeterFilterConfiguration
-            267metricsHttpServerUriTagFilter
-            268org.springframework.boot.actuate.autoconfigure.observation.web.servlet.WebMvcObservationAutoConfiguration
-            269webMvcObservationFilter
-            270org.springframework.boot.autoconfigure.aop.AopAutoConfiguration$AspectJAutoProxyingConfiguration$CglibAutoProxyConfiguration
-            271org.springframework.aop.config.internalAutoProxyCreator
-            272org.springframework.boot.autoconfigure.aop.AopAutoConfiguration$AspectJAutoProxyingConfiguration
-            273org.springframework.boot.autoconfigure.aop.AopAutoConfiguration
-            274org.springframework.boot.autoconfigure.context.ConfigurationPropertiesAutoConfiguration
-            275org.springframework.boot.autoconfigure.context.LifecycleAutoConfiguration
-            276lifecycleProcessor
-            277spring.lifecycle-org.springframework.boot.autoconfigure.context.LifecycleProperties
-            278org.springframework.boot.autoconfigure.dao.PersistenceExceptionTranslationAutoConfiguration
-            279persistenceExceptionTranslationPostProcessor
-            280org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration
-            281jpaSharedEM_entityManagerFactory
-            282emBeanDefinitionRegistrarPostProcessor
-            283jpaMappingContext
-            284jpaContext
-            285org.springframework.data.jpa.util.JpaMetamodelCacheCleanup
-            286org.springframework.data.jpa.repository.support.JpaEvaluationContextExtension
-            287jpa.named-queries#0
-            288jpa.MoneyDao.fragments#0
-            289moneyDao
-            290data-jpa.repository-aot-processor#0
-            291org.springframework.data.web.config.ProjectingArgumentResolverRegistrar
-            292projectingArgumentResolverBeanPostProcessor
-            293org.springframework.data.web.config.SpringDataWebConfiguration
-            294pageableResolver
-            295sortResolver
-            296org.springframework.data.web.config.SpringDataJacksonConfiguration
-            297jacksonGeoModule
-            298org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration
-            299pageableCustomizer
-            300sortCustomizer
-            301spring.data.web-org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties
-            302org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration
-            303h2Console
-            304spring.h2.console-org.springframework.boot.autoconfigure.h2.H2ConsoleProperties
-            305org.springframework.boot.autoconfigure.sql.init.DataSourceInitializationConfiguration
-            306dataSourceScriptDatabaseInitializer
-            307org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration
-            308spring.sql.init-org.springframework.boot.autoconfigure.sql.init.SqlInitializationProperties
-            309org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration$JdbcTransactionManagerConfiguration
-            310org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
-            311org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration
-            312org.springframework.transaction.config.internalTransactionAdvisor
-            313transactionAttributeSource
-            314transactionInterceptor
-            315org.springframework.transaction.config.internalTransactionalEventListenerFactory
-            316org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration$EnableTransactionManagementConfiguration$CglibAutoProxyConfiguration
-            317org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration$EnableTransactionManagementConfiguration
-            318org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration$TransactionTemplateConfiguration
-            319transactionTemplate
-            320org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration
-            321platformTransactionManagerCustomizers
-            322spring.transaction-org.springframework.boot.autoconfigure.transaction.TransactionProperties
-            323org.springframework.boot.autoconfigure.web.embedded.EmbeddedWebServerFactoryCustomizerAutoConfiguration$TomcatWebServerFactoryCustomizerConfiguration
-            324tomcatWebServerFactoryCustomizer
-            325org.springframework.boot.autoconfigure.web.embedded.EmbeddedWebServerFactoryCustomizerAutoConfiguration
-            326org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration
-            327characterEncodingFilter
-            328localeCharsetMappingsCustomizer
-            329org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration
-            330multipartConfigElement
-            331multipartResolver
-            332spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties
-            333org.springframework.boot.devtools.autoconfigure.DevToolsDataSourceAutoConfiguration$DatabaseShutdownExecutorEntityManagerFactoryDependsOnPostProcessor
-            334org.springframework.boot.devtools.autoconfigure.DevToolsDataSourceAutoConfiguration
-            335inMemoryDatabaseShutdownExecutor
-            336org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartConfiguration
-            337restartingClassPathChangedEventListener
-            338classPathFileSystemWatcher
-            339classPathRestartStrategy
-            340fileSystemWatcherFactory
-            341conditionEvaluationDeltaLoggingListener
-            342org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$LiveReloadConfiguration
-            343liveReloadServer
-            344optionalLiveReloadServer
-            345liveReloadServerEventListener
-            346org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration
-            347spring.devtools-org.springframework.boot.devtools.autoconfigure.DevToolsProperties
-            348org.springframework.boot.actuate.autoconfigure.endpoint.web.ServletEndpointManagementContextConfiguration$WebMvcServletEndpointManagementContextConfiguration
-            349servletEndpointRegistrar
-            350org.springframework.boot.actuate.autoconfigure.endpoint.web.ServletEndpointManagementContextConfiguration
-            351servletExposeExcludePropertyEndpointFilter
-            352org.springframework.boot.actuate.autoconfigure.endpoint.web.servlet.WebMvcEndpointManagementContextConfiguration
-            353webEndpointServletHandlerMapping
-            354controllerEndpointHandlerMapping
-            355endpointObjectMapperWebMvcConfigurer
-            356management.endpoints.web.cors-org.springframework.boot.actuate.autoconfigure.endpoint.web.CorsEndpointProperties
-            357org.springframework.boot.actuate.autoconfigure.web.server.ManagementContextAutoConfiguration$SameManagementContextConfiguration$EnableSameManagementContextConfiguration
-            358org.springframework.boot.actuate.autoconfigure.web.server.ManagementContextAutoConfiguration$SameManagementContextConfiguration
-            359org.springframework.boot.actuate.autoconfigure.web.server.ManagementContextAutoConfiguration
-            360management.server-org.springframework.boot.actuate.autoconfigure.web.server.ManagementServerProperties
-            361jpaSharedEM_AWC_entityManagerFactory
-*/
-
-
 Откуда взялись все эти бины?
 Магия этих стартеров втом, что...
 вот мы подключили их 4 шт, и получили поти 400. Подключили бы 10 - получилои бы больше 1000. Потому что каждый стартер, кроме зависимостей, уже приносит какие-то конфигурации,вкоторых прописаны какие-то бины, во например:
@@ -569,6 +214,64 @@ implements ApplicationListener<ContextRefreshedEvent>
 Причем мы для этого ничего не делали в нашем приложении.
 С точки зрения пользователя мы просто подключили зависимость, и у нас появилась конфигурация и появился новый функцилонал.
 
-    (в другом видео про СпринргБут вроде быговорилось,что исплользовать Листенер не очень правильно, todo разорбраться)
+    (в другом видео про СпринргБут вроде бы говорилось,что исплользовать Листенер не очень правильно, todo разорбраться)
+
+# Часть 5. Как это  работает?
+//В связи с устареванием spring.factories этот раздел может быть не актуален
+
+Это  работает благодаря аннотации @SpringBootApplication? это
+аннротация мощная, которая за собой несет кучу всего
+ив первую очередьона несет @EnableAutoConfigurtion
+...который несет всебе тот самый импорт
+
+вспомним.какмыстроили контекст руками через new AnnotationConfig ////
+() и передавали на вход конфигурацию,которая была java-классом. Сейчас мы тоже пишем application.run(), в который передаем какой-то класс,который явл конфигурацией,тольк он не помечен аанотвйцией @Configuration, а он помечен @SpringBootApplication. Но ели разобраться, что такое SpringBootApplication, то востоит внутри @configuration 
+то есть наш главный класс это еще и конфигурация,там можно прописывать бины
+
+Во-вторых там стоит еще и @ComponentScan, который сканирует все пакеты и подпакеты. Соответственно если мы пишем сервисы или контроллеры в наше пакете,то они автоматически просканируются.
+
+И кроме этого там есть этот сммыйц @EnableAutoConfiguration
+(вообще SpringBootAppllication не делает ничегонового, он просто делает все то,что раньшеделали хорошие приложения,ниписанные на спринге, благодаря тому что это теперькомпоиция аннотаций,в т.ч @ComponentScan) 
+
+Вернемся в EnableAutoConfoiguration. Именно этот класс мы прописывали в spring.factories
+А его главная задача это сделать вот такой @Import({EnableAutoConfogurationImportSelector}) 
+Именно от него мы хотели избавиться в нашем приложении, чтобы получить инверсию контроля, чтобы в приложении не писать название класса, который хотим подключить (чтобы не читать документацию :)
+
+Этот класс заканчивается на "..ImportSelector". Это не обычная конфигурация, которую мы обычно импортируем через аннотыцию @Import 
+Вообще с помощью этой аннотации можно импортировать 3 типа - Конфигурацию, ИмпортСелектор и ...еще что-то не сильно важное
+
+ююИэтот ImportSelector протаскивает все наши стартеры (а в итоге весь наш контекст)
+
+Для этого он использует SpringFactoriesLoader, который ищет всякие штуки по всем jar'ам
+
+Каждый стартер несет всякие штуки,и у каждогостартера есть свой spring.factories при помощи которогокоторогоони рассказывают,чтоу нихесть.А у Спринг бута есть механизм, который из всех стартеров приосит то,что они рассказывают в этих spring.factories
+
+Но есть нюанс: у самого Спринг-бута есть его личный jar с его личным spring.factories, в котором есть точно такая же строчка с EnableAutoConfiguration=\, и в ней уже прописаны очень много разных конфигураций. Итого это около 80 автоконфигураций, не связанных друг с другом. И это независимо от того,подключали мы чтото сами или нет.
+Более того,каждая эта автоконфигурация может содердать в себе множество другихконфигурация,как например кэш автоконфигураций spring-boot-autoconfigure.jar  
+    @Import(CacheConfigurationImportSelector.class)
+    public class CacheAutoConfiguration{
+        ...
+        for (int i=0; i<types.length; i++){
+            imports[i] = CacheConfigurations.getConfigurationClass(types[i]);
+        }
+        return imports;
+        
+более того, далее он берет это  класс, статически вынимает изнего какуюто мапу, и в этой мапе захардкожены еще другие конфигурации, которых нет в spring.factories 
+Найти их не так просто, ипри этом они все будут пытаться загрузиться, причем там есть какие-то reddis,hazzlecast и прочие устаревшие не испольхующиеся штуки...
+
+Бороться с этим нам поможет фильтр - аннотация @Conditional
+
+..Итак, повторим с начала,подведем итоги концепцуии
+Часть конфигураций - те,которые хорошие и соблюдают O/C принцип - они несут свои spring.factories, и мысвой стартер пишем также, да и не можем по другому.
+
+кроме этого часть конфинураций прописанывсамом сринг-бвуте (около 80-90шт) 
+Кроме этого штук 30захардкожены в коде спрингбута
+    
+...и вот всеэто поднимается, и потом уже начинают фильтроваться
+
+См лекцию Борисова "что нового в Спринге 4" за 2013год.
+Ранее в Спринге 3 была аннотация @Profile c помощью которой мыне хотим чтобы некоторые бины всегда создавались. А @Conditional это еще более мощный механихм, который оченьактивно используется в СпрингБуте, который дает возможность писать свои аннотации - @Conditions которые ссылаются на какие-то классы, которые возщвращают true/false, и в зависимости от этого бин либо создается, либо нет (см ниже)
+
+А поскольку java-конфигурация в Спринге тоже является бином,то там тоде можноставить всыкие @Conditionalы, и если они векрнуди false, то эти конфигурации считались, но после этого отбросились. Так и работает этот фильтр.
 
 
