@@ -6,12 +6,7 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class MoneyRavenApplication {
-
-    @Bean
-    public MyRavenListener myRavenListener(){
-        return new MyRavenListener();
-    }
-
+    
     public static void main(String[] args) {
         SpringApplication.run(MoneyRavenApplication.class, args);
     }
