@@ -628,6 +628,66 @@ if(resolveTemperature()<-272){
 
 ...убираем из командной строки профиль, запускаем - все работает.
 
+# 2.3 Что такое EPP?
+C ним не все так просто, потому что он раюотает очень рано. Вспомним, что на прошлом этапе Applicationlistener должен былзавалить контекст как можно раньше, пока еще ничего не создалось. А EPP отработал еще раньше, сперва разрезолвив профиль. Кто же его запускает? Его запускает странная штука ConfigFileApplicationListener, который сам является олдновременно EPP и ApplicationListener'ом. 
+Будучи листенером, он слушает определенный эвент,который кидает SpringApplication (на самом деле еще одно звено, которое откровенно лишнее). А такжеон делает некоторые другие вещи,втом числе и запускает другие EPP
+(SRP и не пахнет).
+
+Итак, SpringAppliocation cnhjbbn Environment, после этого он передает себя и энвайронимент в ConfigFileAppicationListener, и дальше он листенер слышит эти эвенты, а как EPP загружает все проперти и все  остальное в энвайронмент, ипосле того он дает поработать другим EPP. Он тоже "ездит" по всем jar'ам с помощью SpringFactoriesLoader'а, и этот лоадерпритаскиваетт все EPP которые он нашел в системе. После этого он их сортирует по их ордерингу, и втом же самом листе с другими EPP передает сам себя в onApplicationEnvironmentPreparedEvent()
+
+Оченьстранный дизайн-паттерн, но это оттого,что Спринг сам внутри себя не может использовать Спринг. Темюболее на текущем этапе, когда еще нет никакого контейнера.
+
+Итак, наш ConfigFileApplicationListener слушает AppliocationPreparedEvent и ApplicationEnvironmentPreparedEvent
+И он жезагружает aplication.yml, application.properties, env vars, cmd args.
+Так сделано.потому что он на раннем этапе считывает всевот эти файлыит.д., но онииеще не смержены, и добавив свой EPP мы можем все сломать, потому что очень силтьно играет ролдь,вкаком порядке  они исполняются, в т.ч.и наш. Особенно это актуально,если мц используем SPringCloud 
+(Если это все жепроизошло, то аннотация @Order нам в помощь) 
+
+# 2.4 Про Эвенты 
+
+В обычном спринге мы слышали про какие-то эвенты,типа ContextStartedEvent, ContextStoppedEvent, ContextClosedEvent, ContextRefreshedEvent. А вот в СпрингБуте их гораздо больше, простотпотому что жизненный цикл егоприлодения гораздобольше,чем нга обыфчном Спринге: 
+
+ApplicationStartingEvent,               --\
+ApplicationEnvironmentPreparedEvent,    ---Этап конфигурации
+ApplicationPreparedEvent,               --/
+
+ContextRefrehedEvent,                       
+EmbeddedAServletContainerInitializedEvent,      
+ApplicationReadyEvent, 
+ApplicationFailedEvent, 
+ContextClosedEvent 
+
+Далеко Не всеэти эвенты нужны обычному программисту.
+...
+...Совсем необязательно прописывать  ContextApplicationListener чтобы слушать эвенты. 
+...
+с помощью модной аннотации @EvemtListener слушать всеэти эвенты нельзхя, можно только обчные спринговые...
+
+Кстати, где они в нашем списке? 
+Вот эти, ContextStarted и ContextStopped. Забыли? Нет, просто они не работают :)
+Мы млжем кинуть их самостоятельно,иихбудет слушать листенер,но сами по себеони не работают.
+Такжеи обратное, разих никтоне вызыавпет,то ихникто и не слушает. Можно сколдько угождно вызывать context.stop(), и ничегоне произойдёт. Единственное это contet.close(),после этого дальше никакие эвенты вызывать нельзя,будет эксепшен.
+
+///20:10 диаграмма,  см скриншот///
+
+Итоговая диаграмма прилоддения на springBoot выглядит так:
+SpringApplication.run() строит environment
+
+ApplicationStrtedEvent
+работают EPP
+ApplicationPreparedEvent 
+работают ApplicaitionContextInitialiaer'ы - например наш,который бросал исключение при пустом энвайронменте
+ContextRefreshedEvent
+--- здесь начинает работать "обычный Spring" - см. материал лекции "Spring-the-Ripper" ---
+EmberddedServletContainerInitializedEvent
+ApplicationReadyEvent
+
+
+
+
+
+
+
+
 
 
 
